@@ -1,0 +1,29 @@
+body {
+  font-family: , Arial, sans-serif;  /* Set the default font-family width  */
+  font-size: ; }  /* Set the default font size  */
+
+.wrapper {
+  max-width: ;  /* Set the max width  */
+  margin: auto; }
+
+.cf:before, .cf:after {
+  content: " ";
+  display: table; }
+
+.cf:after {
+  clear: both; }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+button {
+  background: inherit;
+  outline: 0;
+  border: 0;
+  padding: 0; }
