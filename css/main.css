@@ -3,7 +3,7 @@ body {
   font-size: ; }  /* Set the default font size  */
 
 .wrapper {
-  max-width: ;  /* Set the max width  */
+  max-width: 600px;  /* Set the max width  */
   margin: auto; }
 
 .cf:before, .cf:after {
@@ -27,3 +27,8 @@ button {
   outline: 0;
   border: 0;
   padding: 0; }
+
+.content{
+  background: url("/_temp/background.png");
+  min-width: 1000px;
+}
