@@ -5,20 +5,315 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title></title>
+    <title>To do list</title>
 
     <meta name="description" content="">
 
     <link rel="stylesheet" href="css/base.css">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/autosize.min.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
 </head>
 <body>
 
 <div class="content">
     <div class="wrapper">
-
+        <div class="app-container">
+            <header class="app-header">
+                <button class="preferences-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h1 class="header-title">All tasks</h1>
+                <button class="search-btn">
+                    <span>&#xf002;</span>
+                </button>
+                <button class="add-btn">
+                    <span>&#xf067;</span>
+                </button>
+                <section class="new-task-container">
+                    <div class="add-task">
+                        <textarea name="Task" rows="1" placeholder="Add a new task"></textarea>
+                        <div class="task-options">
+                            <button class="favorite">
+                                <span>&#xf006;</span>
+                            </button>
+                            <button class="date">
+                                <span>&#xf073;</span>
+                            </button>
+                            <button class="category red-palette"></button>
+                        </div>
+                    </div>
+                    <div class="select-category">
+                        <span>Select a category</span>
+                        <div class="category-list">
+                            <button class="red-palette selected">
+                                <span>&#xf015;</span>
+                            </button>
+                            <button class="yellow-palette">
+                                <span>&#xf0b1;</span>
+                            </button>
+                            <button class="violet-palette">
+                                <span>&#xf108;</span>
+                            </button>
+                            <button class="green-palette">
+                                <span>&#xf0c0;</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section class="search-section">
+                    <span>&#xf002;</span>
+                    <input type="text" placeholder="search">
+                </section>
+            </header>
+            <section class="app-body">
+                <div class="main-nav">
+                    <ul class="navbar">
+                        <li class="grey-palette selected">
+                            <span>&#xf01c;</span>
+                        </li>
+                        <li class="red-palette">
+                            <span>&#xf015;</span>
+                        </li>
+                        <li class="yellow-palette">
+                            <span>&#xf0b1;</span>
+                        </li>
+                        <li class="violet-palette">
+                            <span>&#xf108;</span>
+                        </li>
+                        <li class="green-palette">
+                            <span>&#xf0c0;</span>
+                        </li>
+                    </ul>
+                    <button class="setting-btn">&#xf013;</button>
+                </div><!--
+             --><div class="task-container">
+                    <div class="task-details red-palette-helper">
+                        <ul>
+                            <li>
+                                <div class="styled-check">
+                                    <input type="checkbox" name="progress">
+                                    <label></label>
+                                </div>
+                                <h2>Buy a new toothbrush</h2>
+                                <button class="favorite">&#xf006;</button>
+                            </li>
+                            <li>
+                                <button class="add-detail calendar">
+                                    <span>Set a due date</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="add-detail reminder">
+                                    <span>Set a reminder</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="add-detail category">
+                                    <span>Home</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="add-detail note">
+                                    <span>Add note</span>
+                                </button>
+                            </li>
+                        </ul>
+                        <button class="attachment">
+                            <span>&#xf0c6;</span>
+                        </button>
+                    </div>
+                    <div class="task red-palette-helper">
+                        <div class="styled-check">
+                            <input type="checkbox" name="progress">
+                            <label></label>
+                        </div>
+                        <div class="task-inner">
+                            <header class="task-header cf">
+                                <div class="info">
+                                    <span class="place">At Tesco</span>
+                                    <time>Next monday</time>
+                                </div>
+                                <div class="favorite">
+                                    <span>&#xf005;</span>
+                                </div>
+                            </header>
+                            <div class="task-text">
+                                <span>Buy a new better toothbrush</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-6">
+                            <div class="task yellow-palette-helper warning">
+                                <div class="styled-check">
+                                    <input type="checkbox" name="progress">
+                                    <label></label>
+                                </div>
+                                <div class="task-inner">
+                                    <header class="task-header cf">
+                                        <div class="info">
+                                            <time>Tomorrow</time>
+                                        </div>
+                                    </header>
+                                    <div class="task-text">
+                                        <span>Clean my room</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="task violet-palette-helper">
+                                <div class="styled-check">
+                                    <input type="checkbox" name="progress">
+                                    <label></label>
+                                </div>
+                                <div class="task-inner">
+                                    <header class="task-header cf">
+                                        <div class="info">
+                                            <time>19. September 2013</time>
+                                        </div>
+                                    </header>
+                                    <div class="task-text">
+                                        <span>Do a homework from ipsum dolor amet, cosectetur adipiscing</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="task green-palette-helper task-done">
+                                <div class="styled-check">
+                                    <input type="checkbox" name="progress" checked="checked">
+                                    <label></label>
+                                </div>
+                                <div class="task-inner">
+                                    <header class="task-header cf">
+                                        <div class="info">
+                                            <time>Yersterday</time>
+                                        </div>
+                                    </header>
+                                    <div class="task-text">
+                                        <span>Buy a milk</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--
+                     --><div class="col-6">
+                            <div class="task green-palette-helper">
+                                <div class="styled-check">
+                                    <input type="checkbox" name="progress">
+                                    <label></label>
+                                </div>
+                                <div class="task-inner">
+                                    <header class="task-header cf">
+                                        <div class="info">
+                                            <time>14. September 2013</time>
+                                        </div>
+                                    </header>
+                                    <div class="task-text">
+                                        <span>Clean the house and mauris pretium purus id sapien consectetur</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="task violet-palette-helper task-done">
+                                <div class="styled-check">
+                                    <input type="checkbox" name="progress" checked="checked">
+                                    <label></label>
+                                </div>
+                                <div class="task-inner">
+                                    <header class="task-header cf">
+                                        <div class="info">
+                                            <time>5. October 2013</time>
+                                        </div>
+                                    </header>
+                                    <div class="task-text">
+                                        <span>Gift for Petra</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="task yellow-palette-helper task-done">
+                                <div class="styled-check">
+                                    <input type="checkbox" name="progress" checked="checked">
+                                    <label></label>
+                                </div>
+                                <div class="task-inner">
+                                    <header class="task-header cf">
+                                        <div class="info">
+                                            <time>Last week</time>
+                                        </div>
+                                    </header>
+                                    <div class="task-text">
+                                        <span>Call to Jakub Antalik</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calendar-box">
+                    <header class="calendar-head">
+                        <div class="month-carousel">
+                            <a href="#" class="carousel-control left">
+                                <span>&#xf104;</span>
+                            </a>
+                            <div class="carousel-inner">
+                                <div class="item">
+                                    September
+                                </div>
+                            </div>
+                            <a href="#" class="carousel-control right">
+                                <span>&#xf105;</span>
+                            </a>
+                        </div>
+                        <div class="week-days">
+                            <span>MON</span>
+                            <span>TUE</span>
+                            <span>WED</span>
+                            <span>THU</span>
+                            <span>FRI</span>
+                            <span>SAT</span>
+                            <span>SUN</span>
+                        </div>
+                    </header>
+                    <div class="month-days">
+                        <span class="last-month">24</span><!--
+                     --><span class="last-month">25</span><!--
+                     --><span class="last-month">26</span><!--
+                     --><span class="last-month">27</span><!--
+                     --><span class="last-month">28</span><!--
+                     --><span>1</span><!--
+                     --><span>2</span><!--
+                     --><span>3</span><!--
+                     --><span>4</span><!--
+                     --><span>5</span><!--
+                     --><span>6</span><!--
+                     --><span>7</span><!--
+                     --><span>8</span><!--
+                     --><span>9</span><!--
+                     --><span>10</span><!--
+                     --><span>11</span><!--
+                     --><span class="active">12</span><!--
+                     --><span>13</span><!--
+                     --><span>14</span><!--
+                     --><span>15</span><!--
+                     --><span>16</span><!--
+                     --><span>17</span><!--
+                     --><span>18</span><!--
+                     --><span>19</span><!--
+                     --><span>20</span><!--
+                     --><span>21</span><!--
+                     --><span>22</span><!--
+                     --><span>23</span><!--
+                     --><span>24</span><!--
+                     --><span>25</span><!--
+                     --><span>26</span><!--
+                     --><span>27</span><!--
+                     --><span>28</span><!--
+                     --><span class="next-month">1</span><!--
+                     --><span class="next-month">2</span><!--
+                    </div>
+                </div>
+                </div>
+            </section>
+        </div>
     </div>
 </div>
 

@@ -1,0 +1,81 @@
+.calendar-box{
+  display: none;
+  position: absolute;
+  width: 212px;
+  background: #fff;
+  left: 0;
+  top: 10px;
+  z-index: 6;
+  &:after{
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-width: 6px 0 6px 6px;
+    border-color: transparent transparent transparent #fff;
+    right: -6px;
+    top: 115px;
+  }
+  .calendar-head{
+    text-align: center;
+    background: #eceff6;
+    .month-carousel{
+      padding-top: 10px;
+      .carousel-inner{
+        display: inline-block;
+        color: #414757;
+        font-family: open_sanssemibold, Arial, sans-serif;
+        vertical-align: 2px;
+      }
+      .carousel-control{
+        font-family: fontawesome, Arial, sans-serif;
+        color: rgba(0, 0, 0, .4);
+        font-size: 22px;
+        width: 20px;
+        display: inline-block;
+        margin: 0 3px;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        &:hover{
+          color: rgba(0, 0, 0, .7);
+        }
+      }
+    }
+    .week-days{
+      color: rgba(0, 0, 0, .5);
+      font-size: 11px;
+      font-family: open_sanssemibold, Arial, sans-serif;
+      padding: 10px 0;
+      span{
+        width: 25px;
+        display: inline-block;
+      }
+    }
+  }
+  .month-days{
+    color: #414757;
+    font-size: 11px;
+    font-family: open_sanssemibold, Arial, sans-serif;
+    padding: 15px 5px;
+    text-align: center;
+    span{
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+      padding-top: 4px;
+      box-sizing: border-box;
+      vertical-align: top;
+      -webkit-transition: all .2s ease;
+      transition: all .2s ease;
+      margin: 1px;
+      &.active{
+        border: 2px #f66f69 solid;
+        padding-top: 2px;
+      }
+      &:hover{
+        background: #dbdfe2;
+      }
+    }
+  }
+}

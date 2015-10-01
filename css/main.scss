@@ -1,14 +1,12 @@
 body {
-  font-family: open_sansregular, Arial, sans-serif;
-  /* Set the default font-family width  */
-  font-size: 16px;
-  /* Set the default font size  */
+  font-family: open_sansregular, Arial, sans-serif;  /* Set the default font-family width  */
+  font-size: 16px;  /* Set the default font size  */
   color: #fff;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+}
 
 .wrapper {
-  max-width: 600px;
-  /* Set the max width  */
+  max-width: 600px;  /* Set the max width  */
   padding: 0 20px;
   margin: auto; }
 
@@ -34,7 +32,7 @@ button {
   border: 0;
   padding: 0; }
 
-.content {
+.content{
   background: url("../_temp/background.png");
   background-size: cover;
   box-sizing: border-box;
@@ -42,13 +40,14 @@ button {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+}
 
-.app-container {
+.app-container{
   border-radius: 7px;
-  overflow: hidden; }
-
-.app-body {
+  overflow: hidden;
+}
+.app-body{
   background: rgba(0, 0, 0, 0.4);
   display: -webkit-box;
   display: -webkit-flex;
@@ -58,31 +57,33 @@ button {
   -webkit-align-items: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
-  min-height: 415px; }
+  min-height: 415px;
+}
 
-.grey-palette {
-  background: #52596c; }
+.grey-palette{
+  background: #52596c;
+}
+.red-palette{
+  background: #fe6d6a;
+}
+.yellow-palette{
+  background: #ffc778;
+}
+.violet-palette{
+  background: #cc94ef;
+}
+.green-palette{
+  background: #2ce4be;
+}
 
-.red-palette {
-  background: #fe6d6a; }
-
-.yellow-palette {
-  background: #ffc778; }
-
-.violet-palette {
-  background: #cc94ef; }
-
-.green-palette {
-  background: #2ce4be; }
-
-.styled-check {
+.styled-check{
   position: absolute;
   display: inline-block;
   width: 45px;
   top: 0;
   bottom: 0;
-  background: #4a4f62; }
-  .styled-check input {
+  background: #4a4f62;
+  input{
     position: absolute;
     top: 0;
     left: 0;
@@ -90,16 +91,19 @@ button {
     height: 100%;
     width: 100%;
     cursor: pointer;
-    z-index: 2; }
-    .styled-check input:checked + label {
-      background: rgba(255, 255, 255, 0.4);
-      border-color: transparent; }
-      .styled-check input:checked + label:after {
-        opacity: 1; }
-  .styled-check label {
+    z-index: 2;
+    &:checked + label{
+      background: rgba(255, 255, 255, .4);
+      border-color: transparent;
+      &:after{
+        opacity: 1;
+      }
+    }
+  }
+  label{
     height: 18px;
     width: 18px;
-    border: 1px rgba(255, 255, 255, 0.4) solid;
+    border: 1px rgba(255, 255, 255, .4) solid;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -107,8 +111,8 @@ button {
     margin: -10px 0 0 -10px;
     text-align: center;
     -webkit-transition: all .2s ease;
-    transition: all .2s ease; }
-    .styled-check label:after {
+            transition: all .2s ease;
+    &:after{
       content: "\f00c";
       font-size: 14px;
       font-family: fontawesome, Arial, sans-serif;
@@ -116,6 +120,7 @@ button {
       opacity: 0;
       -webkit-transition: all .2s ease;
       transition: all .2s ease;
-      vertical-align: 3px; }
-
-/*# sourceMappingURL=main.css.map */
+      vertical-align: 3px;
+    }
+  }
+}
