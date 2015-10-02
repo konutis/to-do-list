@@ -1,5 +1,8 @@
 .task-container{
-  width: calc(100% - 70px);
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 0%;
+  -ms-flex: 1 0 0%;
+  flex: 1 0 0%;
   vertical-align: top;
   position: relative;
   overflow: hidden;
@@ -216,6 +219,10 @@
     }
   }
   .col-12{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     .col-6{
       width: 50%;
       display: inline-block;

@@ -1,5 +1,8 @@
 .task-container {
-  width: calc(100% - 70px);
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 0%;
+  -ms-flex: 1 0 0%;
+  flex: 1 0 0%;
   vertical-align: top;
   position: relative;
   overflow: hidden; }
@@ -168,18 +171,23 @@
         left: 0;
         background: rgba(0, 0, 0, 0.35);
         z-index: 1; }
-  .task-container .col-12 .col-6 {
-    width: 50%;
-    display: inline-block;
-    vertical-align: top; }
-    .task-container .col-12 .col-6 .task {
-      box-sizing: border-box;
-      border-top: 1px rgba(255, 255, 255, 0.4) solid; }
-      .task-container .col-12 .col-6 .task .task-inner {
-        padding: 16px 28px; }
-        .task-container .col-12 .col-6 .task .task-inner .task-text {
-          font-size: 16px;
-          padding-top: 8px;
-          line-height: 26px; }
+  .task-container .col-12 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+    .task-container .col-12 .col-6 {
+      width: 50%;
+      display: inline-block;
+      vertical-align: top; }
+      .task-container .col-12 .col-6 .task {
+        box-sizing: border-box;
+        border-top: 1px rgba(255, 255, 255, 0.4) solid; }
+        .task-container .col-12 .col-6 .task .task-inner {
+          padding: 16px 28px; }
+          .task-container .col-12 .col-6 .task .task-inner .task-text {
+            font-size: 16px;
+            padding-top: 8px;
+            line-height: 26px; }
 
 /*# sourceMappingURL=tasks.css.map */

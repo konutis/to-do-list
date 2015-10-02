@@ -27,7 +27,7 @@ a {
   color: inherit; }
 
 button {
-  background: inherit;
+  background: transparent;
   outline: 0;
   border: 0;
   padding: 0; }
@@ -85,14 +85,10 @@ button {
   background: #4a4f62;
   input{
     position: absolute;
-    top: 0;
-    left: 0;
     opacity: 0;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    z-index: 2;
-    &:checked + label{
+    height: 0;
+    width: 0;
+    &:checked + label span{
       background: rgba(255, 255, 255, .4);
       border-color: transparent;
       &:after{
@@ -101,26 +97,36 @@ button {
     }
   }
   label{
-    height: 18px;
-    width: 18px;
-    border: 1px rgba(255, 255, 255, .4) solid;
-    border-radius: 50%;
+    display: inline-block;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -10px 0 0 -10px;
-    text-align: center;
-    -webkit-transition: all .2s ease;
-            transition: all .2s ease;
-    &:after{
-      content: "\f00c";
-      font-size: 14px;
-      font-family: fontawesome, Arial, sans-serif;
-      color: #4a4f62;
-      opacity: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 1;
+    span{
+      height: 18px;
+      width: 18px;
+      border: 1px rgba(255, 255, 255, .4) solid;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -10px 0 0 -10px;
+      text-align: center;
       -webkit-transition: all .2s ease;
       transition: all .2s ease;
-      vertical-align: 3px;
+      &:after{
+        content: "\f00c";
+        font-size: 14px;
+        font-family: fontawesome, Arial, sans-serif;
+        color: #4a4f62;
+        opacity: 0;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        vertical-align: 3px;
+      }
     }
   }
 }
