@@ -58,7 +58,19 @@ button {
   -webkit-align-items: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
-  min-height: 415px; }
+  min-height: 415px;
+  position: relative; }
+  .app-body:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1; }
+  .app-body.task-details-open:after {
+    z-index: 1; }
 
 .grey-palette {
   background: #52596c; }
@@ -88,7 +100,7 @@ button {
     height: 0;
     width: 0; }
     .styled-check input:checked + label span {
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.2);
       border-color: transparent; }
       .styled-check input:checked + label span:after {
         opacity: 1; }

@@ -33,7 +33,7 @@
                     <span>&#xf002;</span>
                 </button>
                 <button class="add-btn">
-                    <span>&#xf067;</span>
+
                 </button>
                 <section class="new-task-container">
                     <div class="add-task">
@@ -114,14 +114,13 @@
                                 </button>
                             </li>
                             <li>
-                                <button class="add-detail category">
+                                <button class="add-detail category is-set">
                                     <span>Home</span>
                                 </button>
                             </li>
                             <li>
-                                <button class="add-detail note">
-                                    <span>Add note</span>
-                                </button>
+                                <span class="note-icon">&#xf044;</span>
+                                <textarea rows="12" class="note" name="note" placeholder="Add note"></textarea>
                             </li>
                         </ul>
                         <button class="attachment">
@@ -250,82 +249,85 @@
                             </div>
                         </div>
                     </div>
-                    <table class="calendar-box">
-                        <thead class="calendar-head">
-                            <tr class="month-carousel">
-                                <th colspan="7">
-                                    <a href="#" class="carousel-control left">
-                                        <span>&#xf104;</span>
-                                    </a>
-                                    <div class="carousel-inner">
-                                        <div class="item">
-                                            September
+                    <div class="calendar-box">
+                        <div class="calendar-head">
+                            <table>
+                                <tr class="month-carousel">
+                                    <td colspan="7">
+                                        <a href="#" class="carousel-control left">
+                                            <span>&#xf104;</span>
+                                        </a>
+                                        <div class="carousel-inner">
+                                            <div class="item">
+                                                September
+                                            </div>
                                         </div>
-                                    </div>
-                                    <a href="#" class="carousel-control right">
-                                        <span>&#xf105;</span>
-                                    </a>
-                                </th>
-                            </tr>
-                            <tr class="week-days">
-                                <th>MON</th>
-                                <th>TUE</th>
-                                <th>WED</th>
-                                <th>THU</th>
-                                <th>FRI</th>
-                                <th>SAT</th>
-                                <th>SUN</th>
-                            </tr>
-                        </thead>
-                        <tbody class="month-days">
-                            <tr>
-                                <td class="last-month">24</td>
-                                <td class="last-month">25</td>
-                                <td class="last-month">26</td>
-                                <td class="last-month">27</td>
-                                <td class="last-month">28</td>
-                                <td>1</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                                <td>7</td>
-                                <td>8</td>
-                                <td>9</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>11</td>
-                                <td class="active">12</td>
-                                <td>13</td>
-                                <td>14</td>
-                                <td>15</td>
-                                <td>16</td>
-                            </tr>
-                            <tr>
-                                <td>17</td>
-                                <td>18</td>
-                                <td>19</td>
-                                <td>20</td>
-                                <td>21</td>
-                                <td>22</td>
-                                <td>23</td>
-                            </tr>
-                            <tr>
-                                <td>24</td>
-                                <td>25</td>
-                                <td>26</td>
-                                <td>27</td>
-                                <td>28</td>
-                                <td class="next-month">1</td>
-                                <td class="next-month">2</td>
-                            </tr>
-                            </tr>
-                        </tbody>
-                    </table>
+                                        <a href="#" class="carousel-control right">
+                                            <span>&#xf105;</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="week-days">
+                                    <td>MON</td>
+                                    <td>TUE</td>
+                                    <td>WED</td>
+                                    <td>THU</td>
+                                    <td>FRI</td>
+                                    <td>SAT</td>
+                                    <td>SUN</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="calendar-body">
+                            <table class="month-days">
+                                <tr>
+                                    <td class="prev-next-month">24</td>
+                                    <td class="prev-next-month">25</td>
+                                    <td class="prev-next-month">26</td>
+                                    <td class="prev-next-month">27</td>
+                                    <td class="prev-next-month">28</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>11</td>
+                                    <td class="active">12</td>
+                                    <td>13</td>
+                                    <td>14</td>
+                                    <td>15</td>
+                                    <td>16</td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td>18</td>
+                                    <td>19</td>
+                                    <td>20</td>
+                                    <td>21</td>
+                                    <td>22</td>
+                                    <td>23</td>
+                                </tr>
+                                <tr>
+                                    <td>24</td>
+                                    <td>25</td>
+                                    <td>26</td>
+                                    <td>27</td>
+                                    <td>28</td>
+                                    <td class="prev-next-month">1</td>
+                                    <td class="prev-next-month">2</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

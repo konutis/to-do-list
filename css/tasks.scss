@@ -88,6 +88,12 @@
           &:hover{
             color: rgba(255, 255, 255, .6);
           }
+          &.is-set{
+            color: rgba(255, 255, 255, .7);
+            &:before{
+              color: rgba(255, 255, 255, .9);
+            }
+          }
           &:before{
             content: "";
             font-family: fontawesome, Arial, sans-serif;
@@ -107,19 +113,51 @@
           &.reminder:before{
             content: "\f017";
           }
-          &.category{
-            color: rgba(255, 255, 255, .7);
-          }
           &.category:before{
             height: 24px;
             width: 24px;
             border-radius: 50%;
             display: inline-block;
-            margin-left: -2px;
+            margin: 0 11px 0 -3px;
             vertical-align: -6px;
           }
-          &.note:before{
-            content: "\f044";
+        }
+        .note-icon{
+          font-family: fontawesome, Arial, sans-serif;
+          font-size: 20px;
+          color: rgba(255, 255, 255, .7);
+          margin: 3px 12px 0 17px;
+          display: inline-block;
+          vertical-align: top;
+        }
+        .note{
+          box-sizing: border-box;
+          font-size: 14px;
+          font-family: open_sanssemibold, Arial, sans-serif;
+          width: calc(100% - 65px);
+          background: transparent;
+          max-height: 200px;
+          margin-top: 3px;
+          border: 0;
+          outline: 0;
+          resize: none;
+          padding: 0;
+          overflow-y: hidden !important;
+          &::-webkit-input-placeholder {
+            font-family: open_sanssemibold, Arial, sans-serif;
+            color: rgba(255, 255, 255, .3);
+          }
+          &:-moz-placeholder {
+            font-family: open_sanssemibold, Arial, sans-serif;
+            color: rgba(255, 255, 255, .3);
+          }
+          &::-moz-placeholder {
+            font-family: open_sanssemibold, Arial, sans-serif;
+            color: rgba(255, 255, 255, .3);
+          }
+          &:-ms-input-placeholder {
+            font-family: open_sanssemibold, Arial, sans-serif;
+            color: rgba(255, 255, 255, .3);
           }
         }
       }
