@@ -4,7 +4,7 @@ $(function(){
 
     // -------  Search button
 
-    $('.search-btn').click(function(event){
+    $('.search-btn').click(function(){
         $('.search-section').toggle();
         $(this).toggleClass("selected");
         $('.app-body').toggleClass("task-details-open");
@@ -23,7 +23,6 @@ $(function(){
             shadowContainer.removeClass("task-details-open");
         }
     });
-
 
 
     // -------  Add task button
@@ -70,7 +69,6 @@ $(function(){
     //});
 
 
-
     // -------  Calendar button
 
     $('.calendar').click(function(event){
@@ -88,3 +86,4 @@ $(function(){
     //    }
     //});
 });
+
