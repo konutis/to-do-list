@@ -1,0 +1,30 @@
+@mixin visually-hidden {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+
+    // unwanted scrollbar fix for some browsers
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+@mixin clear-inside {
+    &:after
+    {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin centred {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}

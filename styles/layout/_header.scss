@@ -29,6 +29,7 @@
   font-size: 20px;
   display: inline-block;
   margin-top: 28px;
+  font-weight: normal;
 }
 .add-btn{
   font-family: fontawesome, Arial, sans-serif;
@@ -70,14 +71,21 @@
   }
 }
 
-.new-task-container{
+
+.add-btn ~ .new-task-container {
   display: none;
+}
+.add-btn.selected ~ .new-task-container {
+  display: block;
+}
+.new-task-container{
   text-align: left;
   position: absolute;
   left: 0;
   right: 0;
   top: 70px;
   z-index: 3;
+
 }
 .add-task{
   background: rgba(10, 40, 40, .95);
@@ -163,8 +171,14 @@
     }
   }
 }
-.search-section{
+
+.search-btn ~ .search-section {
   display: none;
+}
+.search-btn.selected ~ .search-section {
+  display: block;
+}
+.search-section{
   position: absolute;
   left: 0;
   right: 0;

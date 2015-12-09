@@ -1,22 +1,22 @@
+html {
+  box-sizing: border-box;
+}
 body {
-  font-family: open_sansregular, Arial, sans-serif;  /* Set the default font-family width  */
-  font-size: 16px;  /* Set the default font size  */
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
   color: #fff;
   -webkit-font-smoothing: antialiased;
 }
-
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 .wrapper {
-  max-width: 600px;  /* Set the max width  */
+  max-width: 600px;
   padding: 0 20px;
-  margin: auto; }
-
-.cf:before, .cf:after {
-  content: " ";
-  display: table; }
-
-.cf:after {
-  clear: both; }
-
+  margin: auto;
+  width: 100%;
+  box-sizing: content-box;
+}
 ul {
   list-style-type: none;
   margin: 0;
@@ -103,8 +103,9 @@ button {
     height: 0;
     width: 0;
     &:checked + label span{
-      background: rgba(255, 255, 255, .2);
+      background: #778899;
       border-color: transparent;
+      opacity: .5;
       &:after{
         opacity: 1;
       }

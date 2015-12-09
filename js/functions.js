@@ -1,89 +1,98 @@
-$(function(){
+var toDoList = function(){
 
-    autosize(document.querySelectorAll('textarea'));
+    // query selector
+    function $(x){
+        return document.querySelector(x);
+    }
 
-    // -------  Search button
-
-    $('.search-btn').click(function(){
-        $('.search-section').toggle();
-        $(this).toggleClass("selected");
-        $('.app-body').toggleClass("task-details-open");
-    });
-    $(document).mouseup(function (e)
-    {
-        var container = $(".search-section");
-        var button = $(".search-btn");
-        var shadowContainer = $(".app-body");
-
-        if (!container.is(e.target) && !$(e.target).closest(".search-btn").is(".search-btn")
-            && container.has(e.target).length === 0)
-        {
-            container.hide();
-            button.removeClass("selected");
-            shadowContainer.removeClass("task-details-open");
-        }
-    });
+    // toggle
+    function toggle(el) {
+        el.style.display = (el.style.display != 'none' ? 'none' : '' );
+    }
 
 
-    // -------  Add task button
+    // every button needs this $('.app-body').toggleClass("task-details-open");
 
-    $('.add-btn').click(function(event){
-        $('.new-task-container').toggle();
-        $(this).toggleClass("selected");
-        $('.app-body').toggleClass("task-details-open");
-    });
+    // Search button
+    $(".search-btn").onclick = function() {
+        this.classList.toggle("selected");
+    };
 
-    //$(document).mouseup(function (e)
-    //{
-    //    var container = $(".new-task-container");
-    //    var button = $(".add-btn");
-    //    var shadowContainer = $(".app-body");
-    //
-    //    if (!container.is(e.target) && !$(e.target).closest(".add-btn").is(".add-btn")
-    //        && container.has(e.target).length === 0)
-    //    {
-    //        container.hide();
-    //        shadowContainer.removeClass(".task-details-open");
-    //    }
-    //});
 
-    // -------  Task details button
+    // Add-task button
+    $(".add-btn").onclick = function() {
+        this.classList.toggle("selected");
+    };
 
-    $('.task-text').click(function(event){
-        $('.task-details').toggleClass("active");
-        $('.app-body').toggleClass("task-details-open");
-    });
 
-    //$(document).mouseup(function (e)
-    //{
-    //    var container = $(".task-details");
-    //    var shadowContainer = $(".app-body");
-    //
-    //    if (!container.is(e.target) && !$(e.target).closest(".task-text").is(".task-text")
-    //        && !$(e.target).closest(".calendar-box").is(".calendar-box")
-    //        && container.has(e.target).length === 0)
-    //    {
-    //        container.removeClass("active");
-    //
-    //    }
+    // Task-details button
+    $(".task-text").onclick = function() {
+        $(".task-details").classList.toggle("active");
+    };
+
+    // Calendar button
+    $(".calendar").onclick = function() {
+        $(".calendar-box").classList.toggle("active");
+    };
+
+    // when task done
+    $(".styled-check").closest("input") = function() {
+        this.closest(".task").classList.toggle("task-done");
+    };
+
+
+    //$('.styled-check input').change(function(){
+    //    $(this).closest('.task').toggleClass('task-done');
     //});
 
 
-    // -------  Calendar button
 
-    $('.calendar').click(function(event){
-        $('.calendar-box').toggle();
-    });
 
-    //$(document).mouseup(function (e)
-    //{
-    //    var container = $(".calendar-box");
+
+
+    //function xxx() {
+    //    console.log($(this).val());
+    //}
     //
-    //    if (!container.is(e.target) && !$(e.target).closest(".task-text").is(".task-text")
-    //        && container.has(e.target).length === 0)
-    //    {
-    //        container.hide();
-    //    }
-    //});
-});
+    //$taskText.on("click", switchToInput);
+    //
+    //
+    //
+    //$taskText.text(localStorage.text);
 
+
+
+
+
+
+
+
+
+    //$taskText.text(JSON.parse(localStorage.getItem('taskText'))[1]);
+    //
+    //function populateStorage() {
+    //    $array = [];
+    //
+    //    $taskText.each(function() {
+    //
+    //        $array.push($(this).text());
+    //
+    //    });
+    //
+    //    localStorage.setItem('taskText', JSON.stringify($array));
+    //
+    //    $a = JSON.parse(localStorage.getItem('taskText'));
+    //
+    //    for(i = 0; i < $taskText.length; i++){
+    //
+    //
+    //
+    //    }
+    //
+    //}
+
+
+
+
+};
+toDoList();

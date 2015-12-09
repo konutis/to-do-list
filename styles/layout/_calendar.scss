@@ -1,75 +1,87 @@
-.calendar-box {
+//.add-detail.calendar ~ .calendar-box {
+//  display: none;
+//}
+.calendar-box.active{
+  display: block;
+}
+.calendar-box{
   display: none;
   position: absolute;
   width: 212px;
   background: #fff;
-  left: 0;
-  top: 10px;
+  right: 100%;
+  top: -100px;
   z-index: 6;
-  text-align: center; }
-  .calendar-box:after {
+  text-align: center;
+  &:after{
     content: "";
     position: absolute;
     border-style: solid;
     border-width: 6px 0 6px 6px;
     border-color: transparent transparent transparent #fff;
     right: -6px;
-    top: 115px; }
-
-.calendar-head {
+    top: 115px;
+  }
+}
+.calendar-head{
   background: #eceff6;
-  padding: 11px; }
-  .calendar-head > table {
-    width: 100%; }
-
-.carousel-inner {
+  padding: 11px;
+  >table{
+    width: 100%;
+  }
+}
+.carousel-inner{
   color: #414757;
   font-family: open_sanssemibold, Arial, sans-serif;
   display: inline-block;
   vertical-align: 2px;
   margin-bottom: 10px;
-  font-size: 16px; }
-
-.carousel-control {
+  font-size: 16px;
+}
+.carousel-control{
   font-family: fontawesome, Arial, sans-serif;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, .4);
   font-size: 22px;
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
-  padding: 0 10px; }
-  .carousel-control:hover {
-    color: rgba(0, 0, 0, 0.7); }
-
-.week-days {
-  color: rgba(0, 0, 0, 0.5);
+  padding: 0 10px;
+  &:hover{
+    color: rgba(0, 0, 0, .7);
+  }
+}
+.week-days{
+  color: rgba(0, 0, 0, .5);
   font-size: 11px;
-  font-family: open_sanssemibold, Arial, sans-serif; }
-
-.calendar-body {
+  font-family: open_sanssemibold, Arial, sans-serif;
+}
+.calendar-body{
   color: #414757;
   font-size: 11px;
   font-family: open_sanssemibold, Arial, sans-serif;
   text-align: center;
-  padding: 11px 11px 11px 12px; }
-
-.month-days {
+  padding: 11px 11px 11px 12px;
+}
+.month-days{
   width: 100%;
   table-layout: fixed;
   border-spacing: 0 3px;
-  border-collapse: separate; }
-  .month-days td {
+  border-collapse: separate;
+  td{
     padding: 5px 0 7px;
     border-radius: 50%;
     cursor: pointer;
     vertical-align: top;
     -webkit-transition: all .2s ease;
-    transition: all .2s ease; }
-    .month-days td.active {
+    transition: all .2s ease;
+    &.active{
       border: 2px #f66f69 solid;
-      padding: 3px 0 5px; }
-    .month-days td:hover {
-      background: #dbdfe2; }
-    .month-days td.prev-next-month {
-      color: rgba(0, 0, 0, 0.3); }
-
-/*# sourceMappingURL=calendar.css.map */
+      padding: 3px 0 5px;
+    }
+    &:hover{
+      background: #dbdfe2;
+    }
+    &.prev-next-month{
+      color: rgba(0, 0, 0, .3);
+    }
+  }
+}

@@ -9,13 +9,8 @@
 
     <meta name="description" content="">
 
-    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="styles/style.css">
     <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css"><![endif]-->
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/autosize.min.js"></script>
-    <script type="text/javascript" src="js/functions.js"></script>
-    <!--[if lte IE 9]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
 </head>
 <body>
 
@@ -106,6 +101,85 @@
                                 <button class="add-detail calendar">
                                     <span>Set a due date</span>
                                 </button>
+                                <div class="calendar-box">
+                                    <div class="calendar-head">
+                                        <table>
+                                            <tr class="month-carousel">
+                                                <td colspan="7">
+                                                    <a href="#" class="carousel-control left">
+                                                        <span>&#xf104;</span>
+                                                    </a>
+                                                    <div class="carousel-inner">
+                                                        <div class="item">
+                                                            September
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="carousel-control right">
+                                                        <span>&#xf105;</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="week-days">
+                                                <td>MON</td>
+                                                <td>TUE</td>
+                                                <td>WED</td>
+                                                <td>THU</td>
+                                                <td>FRI</td>
+                                                <td>SAT</td>
+                                                <td>SUN</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="calendar-body">
+                                        <table class="month-days">
+                                            <tr>
+                                                <td class="prev-next-month">24</td>
+                                                <td class="prev-next-month">25</td>
+                                                <td class="prev-next-month">26</td>
+                                                <td class="prev-next-month">27</td>
+                                                <td class="prev-next-month">28</td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>4</td>
+                                                <td>5</td>
+                                                <td>6</td>
+                                                <td>7</td>
+                                                <td>8</td>
+                                                <td>9</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>11</td>
+                                                <td class="active">12</td>
+                                                <td>13</td>
+                                                <td>14</td>
+                                                <td>15</td>
+                                                <td>16</td>
+                                            </tr>
+                                            <tr>
+                                                <td>17</td>
+                                                <td>18</td>
+                                                <td>19</td>
+                                                <td>20</td>
+                                                <td>21</td>
+                                                <td>22</td>
+                                                <td>23</td>
+                                            </tr>
+                                            <tr>
+                                                <td>24</td>
+                                                <td>25</td>
+                                                <td>26</td>
+                                                <td>27</td>
+                                                <td>28</td>
+                                                <td class="prev-next-month">1</td>
+                                                <td class="prev-next-month">2</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
                             </li>
                             <li class="add-detail-item">
                                 <button class="add-detail reminder">
@@ -126,13 +200,13 @@
                             <span>&#xf0c6;</span>
                         </button>
                     </div>
-                    <div class="task red-palette-helper">
+                    <div class="task red-palette-helper" id="task0">
                         <div class="styled-check">
                             <input type="checkbox" id="check2" name="progress">
                             <label for="check2"><span></span></label>
                         </div>
                         <div class="task-inner">
-                            <header class="task-header cf">
+                            <header class="task-header">
                                 <div class="info">
                                     <span class="place">At Tesco</span>
                                     <time>Next monday</time>
@@ -142,19 +216,19 @@
                                 </div>
                             </header>
                             <div class="task-text">
-                                <span>Buy a new better toothbrush</span>
+                                <span>sdfsdfyolo</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="col-6">
-                            <div class="task yellow-palette-helper warning">
+                            <div class="task yellow-palette-helper warning" id="task1">
                                 <div class="styled-check">
                                     <input type="checkbox" id="check3" name="progress">
                                     <label for="check3"><span></span></label>
                                 </div>
                                 <div class="task-inner">
-                                    <header class="task-header cf">
+                                    <header class="task-header">
                                         <div class="info">
                                             <time>Tomorrow</time>
                                         </div>
@@ -164,29 +238,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="task violet-palette-helper">
+                            <div class="task violet-palette-helper" id="task2">
                                 <div class="styled-check">
                                     <input type="checkbox" id="check4" name="progress">
                                     <label for="check4"><span></span></label>
                                 </div>
                                 <div class="task-inner">
-                                    <header class="task-header cf">
+                                    <header class="task-header">
                                         <div class="info">
                                             <time>19. September 2013</time>
                                         </div>
                                     </header>
                                     <div class="task-text">
-                                        <span>Do a homework from ipsum dolor amet, cosectetur adipiscing</span>
+                                        <span>as</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="task green-palette-helper task-done">
+                            <div class="task green-palette-helper task-done" id="task3">
                                 <div class="styled-check">
                                     <input type="checkbox" id="check5" name="progress" checked="checked">
                                     <label for="check5"><span></span></label>
                                 </div>
                                 <div class="task-inner">
-                                    <header class="task-header cf">
+                                    <header class="task-header">
                                         <div class="info">
                                             <time>Yersterday</time>
                                         </div>
@@ -198,13 +272,13 @@
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="task green-palette-helper">
+                            <div class="task green-palette-helper" id="task4">
                                 <div class="styled-check">
                                     <input type="checkbox" id="check6" name="progress">
                                     <label for="check6"><span></span></label>
                                 </div>
                                 <div class="task-inner">
-                                    <header class="task-header cf">
+                                    <header class="task-header">
                                         <div class="info">
                                             <time>14. September 2013</time>
                                         </div>
@@ -214,13 +288,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="task violet-palette-helper task-done">
+                            <div class="task violet-palette-helper task-done" id="task5">
                                 <div class="styled-check">
                                     <input type="checkbox" id="check7" name="progress" checked="checked">
                                     <label for="check7"><span></span></label>
                                 </div>
                                 <div class="task-inner">
-                                    <header class="task-header cf">
+                                    <header class="task-header">
                                         <div class="info">
                                             <time>5. October 2013</time>
                                         </div>
@@ -230,13 +304,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="task yellow-palette-helper task-done">
+                            <div class="task yellow-palette-helper task-done" id="task6">
                                 <div class="styled-check">
                                     <input type="checkbox" id="check8" name="progress" checked="checked">
                                     <label for="check8"><span></span></label>
                                 </div>
                                 <div class="task-inner">
-                                    <header class="task-header cf">
+                                    <header class="task-header">
                                         <div class="info">
                                             <time>Last week</time>
                                         </div>
@@ -248,90 +322,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="calendar-box">
-                        <div class="calendar-head">
-                            <table>
-                                <tr class="month-carousel">
-                                    <td colspan="7">
-                                        <a href="#" class="carousel-control left">
-                                            <span>&#xf104;</span>
-                                        </a>
-                                        <div class="carousel-inner">
-                                            <div class="item">
-                                                September
-                                            </div>
-                                        </div>
-                                        <a href="#" class="carousel-control right">
-                                            <span>&#xf105;</span>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr class="week-days">
-                                    <td>MON</td>
-                                    <td>TUE</td>
-                                    <td>WED</td>
-                                    <td>THU</td>
-                                    <td>FRI</td>
-                                    <td>SAT</td>
-                                    <td>SUN</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="calendar-body">
-                            <table class="month-days">
-                                <tr>
-                                    <td class="prev-next-month">24</td>
-                                    <td class="prev-next-month">25</td>
-                                    <td class="prev-next-month">26</td>
-                                    <td class="prev-next-month">27</td>
-                                    <td class="prev-next-month">28</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>7</td>
-                                    <td>8</td>
-                                    <td>9</td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>11</td>
-                                    <td class="active">12</td>
-                                    <td>13</td>
-                                    <td>14</td>
-                                    <td>15</td>
-                                    <td>16</td>
-                                </tr>
-                                <tr>
-                                    <td>17</td>
-                                    <td>18</td>
-                                    <td>19</td>
-                                    <td>20</td>
-                                    <td>21</td>
-                                    <td>22</td>
-                                    <td>23</td>
-                                </tr>
-                                <tr>
-                                    <td>24</td>
-                                    <td>25</td>
-                                    <td>26</td>
-                                    <td>27</td>
-                                    <td>28</td>
-                                    <td class="prev-next-month">1</td>
-                                    <td class="prev-next-month">2</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
                 </div>
             </section>
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="js/functions.js"></script>
 
 </body>
 </html>

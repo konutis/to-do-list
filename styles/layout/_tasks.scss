@@ -62,9 +62,27 @@
   h2{
     margin: 0 0 5px 53px;
     font-weight: normal;
-    font-size: 28px;
+    font-size: 24px;
     width: calc(100% - 105px);
     display: inline-block;
+    word-break: break-all;
+  }
+  textarea.task-text {
+    resize: none;
+    margin: 0 0 0 53px;
+    font-weight: normal;
+    font-size: 24px;
+    width: calc(100% - 105px);
+    background: transparent;
+    word-break: break-all;
+    border: 0;
+    padding: 0;
+    &:focus {
+      outline: 0;
+    }
+  }
+  &.date {
+    position: relative;
   }
   >.favorite{
     font-family: fontawesome, Arial, sans-serif;
@@ -225,11 +243,10 @@
   vertical-align: top;
   box-sizing: border-box;
   padding: 30px 28px;
-
-
 }
 .task-header{
   color: rgba(255, 255, 255, 0.5);
+  @include clear-inside;
   .info{
     float: left;
     font-size: 11px;
@@ -256,8 +273,25 @@
 }
 .task-text{
   padding-top: 10px;
-  font-size: 42px;
+  font-size: 36px;
   cursor: pointer;
+  span {
+    word-break: break-all;
+    max-width: 310px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  textarea {
+    background: transparent;
+    width: 310px;
+    resize: none;
+    border: 0;
+    padding: 0;
+    word-break: break-all;
+    &:focus {
+      outline: 0;
+    }
+  }
 }
 .col-12{
   display: -webkit-box;
@@ -278,6 +312,15 @@
         font-size: 16px;
         padding-top: 8px;
         line-height: 26px;
+        span {
+          max-width: 106px;
+          margin-bottom: 7px;
+        }
+        textarea {
+          margin: 0;
+          padding: 0;
+          width: 106px;
+        }
       }
     }
   }
