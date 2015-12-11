@@ -7,10 +7,9 @@
 
     <title>To do list</title>
 
-    <meta name="description" content="">
-
+    <meta name="description" content="To do list">
     <link rel="stylesheet" href="styles/style.css">
-    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css"><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="styles/ie9.css"><![endif]-->
 </head>
 <body>
 
@@ -68,7 +67,7 @@
             <section class="app-body">
                 <div class="main-nav">
                     <ul class="navbar">
-                        <li class="grey-palette selected">
+                        <li class="grey-palette">
                             <span>&#xf01c;</span>
                         </li>
                         <li class="red-palette">
@@ -87,14 +86,16 @@
                     <button class="setting-btn">&#xf013;</button>
                 </div>
                 <div class="task-container">
-                    <div class="task-details red-palette-helper">
+                    <div class="task-details">
                         <ul>
                             <li class="add-detail-item">
                                 <div class="styled-check">
-                                    <input type="checkbox" id="check1" name="progress">
+                                    <input type="checkbox" id="check1" name="status">
                                     <label for="check1"><span></span></label>
                                 </div>
-                                <h2>Buy a new toothbrush</h2>
+                                <div class="selected-text" contenteditable="true">
+                                    <span></span>
+                                </div>
                                 <button class="favorite">&#xf006;</button>
                             </li>
                             <li class="add-detail-item">
@@ -182,27 +183,57 @@
                                 </div>
                             </li>
                             <li class="add-detail-item">
-                                <button class="add-detail reminder">
+                                <button type="button" class="add-detail reminder">
                                     <span>Set a reminder</span>
                                 </button>
+                                <div class="edit-reminder">
+                                    <div class="hours">
+                                        <input type="number" max="2">
+                                        <button type="button" class="minus"></button>
+                                        <button type="button" class="plus"></button>
+                                    </div>
+                                    <div class="minutes">
+                                        <input type="number" max="2">
+                                        <button type="button" class="minus"></button>
+                                        <button type="button" class="plus"></button>
+                                    </div>
+                                    <div class="reminder-controls">
+                                        <button class="save" type="button"></button>
+                                        <button class="cancel" type="button"></button>
+                                    </div>
+                                </div>
                             </li>
                             <li class="add-detail-item">
-                                <button class="add-detail category is-set">
-                                    <span>Home</span>
-                                </button>
+                                <button class="add-detail category"></button>
+                                <div class="edit-category">
+                                    <div class="categories">
+                                        <button type="button" class="red-palette-helper"></button>
+                                        <button type="button" class="yellow-palette-helper"></button>
+                                        <button type="button" class="violet-palette-helper"></button>
+                                        <button type="button" class="green-palette-helper"></button>
+                                    </div>
+                                </div>
                             </li>
                             <li class="add-detail-item">
                                 <span class="note-icon">&#xf044;</span>
                                 <textarea rows="12" class="note" name="note" placeholder="Add note"></textarea>
                             </li>
                         </ul>
-                        <button class="attachment">
-                            <span>&#xf0c6;</span>
-                        </button>
+                        <div class="controls">
+                            <button type="button" class="attachment">
+                                <span>&#xf0c6;</span>
+                            </button>
+                            <button type="button" class="save-edited">
+                                Save
+                            </button>
+                            <button type="button" class="cancel-edited">
+                                Cancel
+                            </button>
+                        </div>
                     </div>
                     <div class="task red-palette-helper" id="task0">
                         <div class="styled-check">
-                            <input type="checkbox" id="check2" name="progress">
+                            <input type="checkbox" class="checker" id="check2" name="status">
                             <label for="check2"><span></span></label>
                         </div>
                         <div class="task-inner">
@@ -216,15 +247,16 @@
                                 </div>
                             </header>
                             <div class="task-text">
-                                <span>sdfsdfyolo</span>
+                                <span>Buy a new better toothbrush</span>
                             </div>
+                            <p class="task-note">This is task 0 note</p>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="col-6">
                             <div class="task yellow-palette-helper warning" id="task1">
                                 <div class="styled-check">
-                                    <input type="checkbox" id="check3" name="progress">
+                                    <input type="checkbox" class="checker" id="check3" name="status">
                                     <label for="check3"><span></span></label>
                                 </div>
                                 <div class="task-inner">
@@ -236,11 +268,12 @@
                                     <div class="task-text">
                                         <span>Clean my room</span>
                                     </div>
+                                    <p class="task-note"></p>
                                 </div>
                             </div>
                             <div class="task violet-palette-helper" id="task2">
                                 <div class="styled-check">
-                                    <input type="checkbox" id="check4" name="progress">
+                                    <input type="checkbox" class="checker" id="check4" name="status">
                                     <label for="check4"><span></span></label>
                                 </div>
                                 <div class="task-inner">
@@ -250,13 +283,14 @@
                                         </div>
                                     </header>
                                     <div class="task-text">
-                                        <span>as</span>
+                                        <span>alksmdlk laksm laks laaks nakjsnkjasn kjnskjnskm skmmgok as</span>
                                     </div>
+                                    <p class="task-note"></p>
                                 </div>
                             </div>
-                            <div class="task green-palette-helper task-done" id="task3">
+                            <div class="task green-palette-helper" id="task3">
                                 <div class="styled-check">
-                                    <input type="checkbox" id="check5" name="progress" checked="checked">
+                                    <input type="checkbox" class="checker" id="check5" name="status">
                                     <label for="check5"><span></span></label>
                                 </div>
                                 <div class="task-inner">
@@ -268,13 +302,14 @@
                                     <div class="task-text">
                                         <span>Buy a milk</span>
                                     </div>
+                                    <p class="task-note"></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="task green-palette-helper" id="task4">
                                 <div class="styled-check">
-                                    <input type="checkbox" id="check6" name="progress">
+                                    <input type="checkbox" class="checker" id="check6" name="status">
                                     <label for="check6"><span></span></label>
                                 </div>
                                 <div class="task-inner">
@@ -286,11 +321,12 @@
                                     <div class="task-text">
                                         <span>Clean the house and mauris pretium purus id sapien consectetur</span>
                                     </div>
+                                    <p class="task-note"></p>
                                 </div>
                             </div>
-                            <div class="task violet-palette-helper task-done" id="task5">
+                            <div class="task violet-palette-helper" id="task5">
                                 <div class="styled-check">
-                                    <input type="checkbox" id="check7" name="progress" checked="checked">
+                                    <input type="checkbox" class="checker" id="check7" name="status"">
                                     <label for="check7"><span></span></label>
                                 </div>
                                 <div class="task-inner">
@@ -302,11 +338,12 @@
                                     <div class="task-text">
                                         <span>Gift for Petra</span>
                                     </div>
+                                    <p class="task-note"></p>
                                 </div>
                             </div>
-                            <div class="task yellow-palette-helper task-done" id="task6">
+                            <div class="task yellow-palette-helper" id="task6">
                                 <div class="styled-check">
-                                    <input type="checkbox" id="check8" name="progress" checked="checked">
+                                    <input type="checkbox" class="checker" id="check8" name="status">
                                     <label for="check8"><span></span></label>
                                 </div>
                                 <div class="task-inner">
@@ -318,6 +355,7 @@
                                     <div class="task-text">
                                         <span>Call to Jakub Antalik</span>
                                     </div>
+                                    <p class="task-note"></p>
                                 </div>
                             </div>
                         </div>

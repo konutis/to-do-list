@@ -1,6 +1,3 @@
-//.add-detail.calendar ~ .calendar-box {
-//  display: none;
-//}
 .calendar-box.active{
   display: block;
 }
@@ -10,8 +7,8 @@
   width: 212px;
   background: #fff;
   right: 100%;
-  top: -100px;
-  z-index: 6;
+  top: -53px;
+  z-index: 10;
   text-align: center;
   &:after{
     content: "";
@@ -20,7 +17,7 @@
     border-width: 6px 0 6px 6px;
     border-color: transparent transparent transparent #fff;
     right: -6px;
-    top: 115px;
+    top: 68px;
   }
 }
 .calendar-head{
@@ -32,7 +29,7 @@
 }
 .carousel-inner{
   color: #414757;
-  font-family: open_sanssemibold, Arial, sans-serif;
+  font-weight: bold;
   display: inline-block;
   vertical-align: 2px;
   margin-bottom: 10px;
@@ -52,12 +49,12 @@
 .week-days{
   color: rgba(0, 0, 0, .5);
   font-size: 11px;
-  font-family: open_sanssemibold, Arial, sans-serif;
+  font-weight: bold;
 }
 .calendar-body{
   color: #414757;
   font-size: 11px;
-  font-family: open_sanssemibold, Arial, sans-serif;
+  font-weight: bold;
   text-align: center;
   padding: 11px 11px 11px 12px;
 }

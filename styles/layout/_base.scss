@@ -5,14 +5,26 @@ body {
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 16px;
   color: #fff;
+
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-smoothing: grayscale;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 .wrapper {
   max-width: 600px;
-  padding: 0 20px;
+  padding: 20px;
   margin: auto;
   width: 100%;
   box-sizing: content-box;
@@ -32,8 +44,17 @@ button {
   border: 0;
   padding: 0; }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
 .content{
-  background: url("../_temp/background.png");
+  background: url("../_temp/motocross.jpg") center;
   background-size: cover;
   box-sizing: border-box;
   min-height: 100vh;
@@ -105,7 +126,7 @@ button {
     &:checked + label span{
       background: #778899;
       border-color: transparent;
-      opacity: .5;
+      opacity: .6;
       &:after{
         opacity: 1;
       }
@@ -121,18 +142,20 @@ button {
     cursor: pointer;
     z-index: 1;
     span{
-      height: 18px;
-      width: 18px;
-      border: 1px rgba(255, 255, 255, .4) solid;
+      height: 20px;
+      width: 20px;
+      border: 1px rgba(255, 255, 255, .5) solid;
       border-radius: 50%;
       position: absolute;
       top: 50%;
       left: 50%;
       margin: -10px 0 0 -10px;
-      text-align: center;
       -webkit-transition: all .2s ease;
       transition: all .2s ease;
       &:after{
+        @include centred;
+        height: 16px;
+        width: 14px;
         content: "\f00c";
         font-size: 14px;
         font-family: fontawesome, Arial, sans-serif;
@@ -140,7 +163,6 @@ button {
         opacity: 0;
         -webkit-transition: all .2s ease;
         transition: all .2s ease;
-        vertical-align: 3px;
       }
     }
   }
