@@ -9,6 +9,7 @@
 
     <meta name="description" content="To do list">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" type="image/jpg" href="_temp/favicon.jpg">
     <!--[if lte IE 9]><link rel="stylesheet" href="styles/ie9.css"><![endif]-->
 </head>
 <body>
@@ -23,51 +24,57 @@
                     <span></span>
                 </button>
                 <h1 class="header-title">All tasks</h1>
-                <button class="search-btn">
-                    <span>&#xf002;</span>
-                </button>
-                <button class="add-btn">
-                </button>
-                <section class="new-task-container">
-                    <div class="add-task">
-                        <textarea name="Task" rows="1" placeholder="Add a new task"></textarea>
-                        <div class="task-options">
-                            <button class="favorite">
-                                <span>&#xf006;</span>
-                            </button>
-                            <button class="date">
-                                <span>&#xf073;</span>
-                            </button>
-                            <button class="category red-palette"></button>
+                <div class="header-controls">
+                    <button class="search-btn">
+                        <span>&#xf002;</span>
+                    </button>
+                    <button class="add-btn">
+                    </button>
+                    <section class="new-task-container">
+                        <div class="add-task">
+                            <div class="add-text" contenteditable="true"><span>Add a new task</span></div>
+                            <div class="task-options">
+                                <div class="star-check">
+                                    <input type="checkbox" id="star" class="priority">
+                                    <label for="star">
+                                        <span class="blank"></span>
+                                        <span class="full"></span>
+                                    </label>
+                                </div>
+                                <button class="date">
+                                    <span>&#xf073;</span>
+                                </button>
+                                <button class="category"></button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="select-category">
-                        <span>Select a category</span>
-                        <div class="category-list">
-                            <button class="red-palette selected">
-                                <span>&#xf015;</span>
-                            </button>
-                            <button class="yellow-palette">
-                                <span>&#xf0b1;</span>
-                            </button>
-                            <button class="violet-palette">
-                                <span>&#xf108;</span>
-                            </button>
-                            <button class="green-palette">
-                                <span>&#xf0c0;</span>
-                            </button>
+                        <div class="select-category">
+                            <span>Select a category</span>
+                            <div class="category-list">
+                                <button class="red-palette">
+                                    <span>&#xf015;</span>
+                                </button>
+                                <button class="yellow-palette">
+                                    <span>&#xf0b1;</span>
+                                </button>
+                                <button class="violet-palette">
+                                    <span>&#xf108;</span>
+                                </button>
+                                <button class="green-palette">
+                                    <span>&#xf0c0;</span>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                </section>
-                <section class="search-section">
-                    <span>&#xf002;</span>
-                    <input type="text" placeholder="search">
-                </section>
+                    </section>
+                    <section class="search-section">
+                        <span>&#xf002;</span>
+                        <input type="text" placeholder="search">
+                    </section>
+                </div>
             </header>
             <section class="app-body">
                 <div class="main-nav">
                     <ul class="navbar">
-                        <li class="grey-palette">
+                        <li class="grey-palette active">
                             <span>&#xf01c;</span>
                         </li>
                         <li class="red-palette">
@@ -90,19 +97,25 @@
                         <ul>
                             <li class="add-detail-item">
                                 <div class="styled-check">
-                                    <input type="checkbox" id="check1" name="status">
-                                    <label for="check1"><span></span></label>
+                                    <input type="checkbox" id="edit-check" name="status">
+                                    <label for="edit-check"><span></span></label>
                                 </div>
                                 <div class="selected-text" contenteditable="true">
                                     <span></span>
                                 </div>
-                                <button class="favorite">&#xf006;</button>
+                                <div class="star-check">
+                                    <input type="checkbox" id="star1" class="important">
+                                    <label for="star1">
+                                        <span class="blank"></span>
+                                        <span class="full"></span>
+                                    </label>
+                                </div>
                             </li>
                             <li class="add-detail-item">
                                 <button class="add-detail calendar">
                                     <span>Set a due date</span>
                                 </button>
-                                <div class="calendar-box">
+                                <div class="calendar-box edit-detail">
                                     <div class="calendar-head">
                                         <table>
                                             <tr class="month-carousel">
@@ -186,26 +199,25 @@
                                 <button type="button" class="add-detail reminder">
                                     <span>Set a reminder</span>
                                 </button>
-                                <div class="edit-reminder">
+                                <div class="edit-reminder edit-detail">
                                     <div class="hours">
-                                        <input type="number" max="2">
+                                        <input type="number">
                                         <button type="button" class="minus"></button>
                                         <button type="button" class="plus"></button>
                                     </div>
                                     <div class="minutes">
-                                        <input type="number" max="2">
+                                        <input type="number">
                                         <button type="button" class="minus"></button>
                                         <button type="button" class="plus"></button>
                                     </div>
                                     <div class="reminder-controls">
                                         <button class="save" type="button"></button>
-                                        <button class="cancel" type="button"></button>
                                     </div>
                                 </div>
                             </li>
                             <li class="add-detail-item">
                                 <button class="add-detail category"></button>
-                                <div class="edit-category">
+                                <div class="edit-category edit-detail">
                                     <div class="categories">
                                         <button type="button" class="red-palette-helper"></button>
                                         <button type="button" class="yellow-palette-helper"></button>
@@ -216,7 +228,7 @@
                             </li>
                             <li class="add-detail-item">
                                 <span class="note-icon">&#xf044;</span>
-                                <textarea rows="12" class="note" name="note" placeholder="Add note"></textarea>
+                                <textarea rows="5" class="note" name="note" placeholder="Add note"></textarea>
                             </li>
                         </ul>
                         <div class="controls">
@@ -226,38 +238,34 @@
                             <button type="button" class="save-edited">
                                 Save
                             </button>
-                            <button type="button" class="cancel-edited">
-                                Cancel
-                            </button>
                         </div>
                     </div>
-                    <div class="task red-palette-helper" id="task0">
-                        <div class="styled-check">
-                            <input type="checkbox" class="checker" id="check2" name="status">
-                            <label for="check2"><span></span></label>
-                        </div>
-                        <div class="task-inner">
-                            <header class="task-header">
-                                <div class="info">
-                                    <span class="place">At Tesco</span>
-                                    <time>Next monday</time>
-                                </div>
-                                <div class="favorite">
-                                    <span>&#xf005;</span>
-                                </div>
-                            </header>
-                            <div class="task-text">
-                                <span>Buy a new better toothbrush</span>
+                    <div class="important-wrap">
+                        <div class="task red-palette-helper important" id="task0">
+                            <div class="styled-check">
+                                <input type="checkbox" class="checker" id="check0" name="status">
+                                <label for="check0"><span></span></label>
                             </div>
-                            <p class="task-note">This is task 0 note</p>
+                            <div class="task-inner">
+                                <header class="task-header">
+                                    <div class="info">
+                                        <span class="place">At Tesco</span>
+                                        <time>Next monday</time>
+                                    </div>
+                                </header>
+                                <div class="task-text">
+                                    <span>Buy a new better toothbrush</span>
+                                </div>
+                                <p class="task-note">This is task 0 note</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="col-6">
                             <div class="task yellow-palette-helper warning" id="task1">
                                 <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check3" name="status">
-                                    <label for="check3"><span></span></label>
+                                    <input type="checkbox" class="checker" id="check1" name="status">
+                                    <label for="check1"><span></span></label>
                                 </div>
                                 <div class="task-inner">
                                     <header class="task-header">
@@ -273,8 +281,8 @@
                             </div>
                             <div class="task violet-palette-helper" id="task2">
                                 <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check4" name="status">
-                                    <label for="check4"><span></span></label>
+                                    <input type="checkbox" class="checker" id="check2" name="status">
+                                    <label for="check2"><span></span></label>
                                 </div>
                                 <div class="task-inner">
                                     <header class="task-header">
@@ -283,15 +291,15 @@
                                         </div>
                                     </header>
                                     <div class="task-text">
-                                        <span>alksmdlk laksm laks laaks nakjsnkjasn kjnskjnskm skmmgok as</span>
+                                        <span>Do a homework from ipsum dolor amet, consectetur adipiscing</span>
                                     </div>
                                     <p class="task-note"></p>
                                 </div>
                             </div>
                             <div class="task green-palette-helper" id="task3">
                                 <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check5" name="status">
-                                    <label for="check5"><span></span></label>
+                                    <input type="checkbox" class="checker" id="check3" name="status">
+                                    <label for="check3"><span></span></label>
                                 </div>
                                 <div class="task-inner">
                                     <header class="task-header">
@@ -309,8 +317,8 @@
                         <div class="col-6">
                             <div class="task green-palette-helper" id="task4">
                                 <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check6" name="status">
-                                    <label for="check6"><span></span></label>
+                                    <input type="checkbox" class="checker" id="check4" name="status">
+                                    <label for="check4"><span></span></label>
                                 </div>
                                 <div class="task-inner">
                                     <header class="task-header">
@@ -326,8 +334,8 @@
                             </div>
                             <div class="task violet-palette-helper" id="task5">
                                 <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check7" name="status"">
-                                    <label for="check7"><span></span></label>
+                                    <input type="checkbox" class="checker" id="check5" name="status"">
+                                    <label for="check5"><span></span></label>
                                 </div>
                                 <div class="task-inner">
                                     <header class="task-header">
@@ -343,8 +351,8 @@
                             </div>
                             <div class="task yellow-palette-helper" id="task6">
                                 <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check8" name="status">
-                                    <label for="check8"><span></span></label>
+                                    <input type="checkbox" class="checker" id="check6" name="status">
+                                    <label for="check6"><span></span></label>
                                 </div>
                                 <div class="task-inner">
                                     <header class="task-header">

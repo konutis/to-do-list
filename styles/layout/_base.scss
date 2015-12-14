@@ -22,6 +22,9 @@ body {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+.content {
+  min-width: 640px;
+}
 .wrapper {
   max-width: 600px;
   padding: 20px;
@@ -78,8 +81,9 @@ input[type=number] {
   -webkit-align-items: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
-  min-height: 415px;
+  min-height: 417px;
   position: relative;
+  overflow: hidden;
   &:after{
     content: "";
     position: absolute;

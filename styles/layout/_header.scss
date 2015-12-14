@@ -46,7 +46,7 @@
   &:hover{
     color: rgba(255, 255, 255, 1);
   }
-  &.selected{
+  &.active{
     color: rgba(255, 255, 255, 1);
     &:before{
       content: "\f00d";
@@ -66,7 +66,7 @@
   &:hover{
     color: rgba(255, 255, 255, 1);
   }
-  &.selected{
+  &.active{
     color: rgba(255, 255, 255, 1);
   }
 }
@@ -75,7 +75,7 @@
 .add-btn ~ .new-task-container {
   display: none;
 }
-.add-btn.selected ~ .new-task-container {
+.add-btn.active ~ .new-task-container {
   display: block;
 }
 .new-task-container{
@@ -90,17 +90,24 @@
 .add-task{
   background: rgba(10, 40, 40, .95);
   padding: 30px 30px 15px;
-  textarea{
+  .add-text{
     box-sizing: border-box;
     font-size: 28px;
     width: calc(100% - 115px);
+    display: inline-block;
     background: transparent;
     border: 0;
     outline: 0;
     resize: none;
     min-height: 46px;
     padding: 0;
-    overflow-y: hidden !important;
+    span {
+      word-wrap: break-word;
+      display: block;
+      br {
+        display: none;
+      }
+    }
   }
 }
 .task-options{
@@ -117,13 +124,6 @@
     &:hover{
       color: rgba(255, 255, 255, 1);
     }
-    &.favorite{
-      font-size: 24px;
-      margin-left: 0;
-    }
-    &.date{
-      padding: 2px;
-    }
   }
   .category{
     height: 24px;
@@ -131,6 +131,46 @@
     border-radius: 50%;
   }
 }
+.star-check {
+  display: inline-block;
+  margin-left: 0;
+  color: rgba(255, 255, 255, .5);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+  input {
+    @include visually-hidden;
+    &:checked + label{
+      .full {
+        display: inline-block;
+      }
+      .blank {
+        display: none;
+      }
+    }
+  }
+  label {
+    cursor: pointer;
+  }
+  span {
+    font-family: fontawesome, Arial, sans-serif;
+    font-size: 22px;
+  }
+  .blank {
+    &:before {
+      content: "\f006";
+    }
+  }
+  .full {
+    display: none;
+    &:before {
+      content: "\f005";
+    }
+  }
+}
+
 .select-category{
   background: rgba(60, 60, 60, .95);
   padding: 32px 25px 32px 30px;
@@ -163,7 +203,7 @@
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
     margin-left: 15px;
-    &.selected{
+    &.active{
       opacity: 1;
     }
     &:hover{
@@ -175,7 +215,7 @@
 .search-btn ~ .search-section {
   display: none;
 }
-.search-btn.selected ~ .search-section {
+.search-btn.active ~ .search-section {
   display: block;
 }
 .search-section{
