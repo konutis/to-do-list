@@ -15,6 +15,10 @@
 <body>
 
 <div class="content">
+    <button type="button" class="reset-tasks" title="This will reset all tasks to default.">
+        Reset all tasks
+    </button>
+
     <div class="wrapper">
         <div class="app-container">
             <header class="app-header">
@@ -219,10 +223,10 @@
                                 <button class="add-detail category"></button>
                                 <div class="edit-category edit-detail">
                                     <div class="categories">
-                                        <button type="button" class="red-palette-helper"></button>
-                                        <button type="button" class="yellow-palette-helper"></button>
-                                        <button type="button" class="violet-palette-helper"></button>
-                                        <button type="button" class="green-palette-helper"></button>
+                                        <button type="button" class="red-palette-helper">Home</button>
+                                        <button type="button" class="yellow-palette-helper">Work</button>
+                                        <button type="button" class="violet-palette-helper">Computer</button>
+                                        <button type="button" class="green-palette-helper">Friends</button>
                                     </div>
                                 </div>
                             </li>
@@ -235,137 +239,14 @@
                             <button type="button" class="attachment">
                                 <span>&#xf0c6;</span>
                             </button>
-                            <button type="button" class="save-edited">
-                                Save
-                            </button>
                         </div>
                     </div>
                     <div class="important-wrap">
-                        <div class="task red-palette-helper important" id="task0">
-                            <div class="styled-check">
-                                <input type="checkbox" class="checker" id="check0" name="status">
-                                <label for="check0"><span></span></label>
-                            </div>
-                            <div class="task-inner">
-                                <header class="task-header">
-                                    <div class="info">
-                                        <span class="place">At Tesco</span>
-                                        <time>Next monday</time>
-                                    </div>
-                                </header>
-                                <div class="task-text">
-                                    <span>Buy a new better toothbrush</span>
-                                </div>
-                                <p class="task-note">This is task 0 note</p>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-12">
                         <div class="col-6">
-                            <div class="task yellow-palette-helper warning" id="task1">
-                                <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check1" name="status">
-                                    <label for="check1"><span></span></label>
-                                </div>
-                                <div class="task-inner">
-                                    <header class="task-header">
-                                        <div class="info">
-                                            <time>Tomorrow</time>
-                                        </div>
-                                    </header>
-                                    <div class="task-text">
-                                        <span>Clean my room</span>
-                                    </div>
-                                    <p class="task-note"></p>
-                                </div>
-                            </div>
-                            <div class="task violet-palette-helper" id="task2">
-                                <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check2" name="status">
-                                    <label for="check2"><span></span></label>
-                                </div>
-                                <div class="task-inner">
-                                    <header class="task-header">
-                                        <div class="info">
-                                            <time>19. September 2013</time>
-                                        </div>
-                                    </header>
-                                    <div class="task-text">
-                                        <span>Do a homework from ipsum dolor amet, consectetur adipiscing</span>
-                                    </div>
-                                    <p class="task-note"></p>
-                                </div>
-                            </div>
-                            <div class="task green-palette-helper" id="task3">
-                                <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check3" name="status">
-                                    <label for="check3"><span></span></label>
-                                </div>
-                                <div class="task-inner">
-                                    <header class="task-header">
-                                        <div class="info">
-                                            <time>Yersterday</time>
-                                        </div>
-                                    </header>
-                                    <div class="task-text">
-                                        <span>Buy a milk</span>
-                                    </div>
-                                    <p class="task-note"></p>
-                                </div>
-                            </div>
                         </div>
                         <div class="col-6">
-                            <div class="task green-palette-helper" id="task4">
-                                <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check4" name="status">
-                                    <label for="check4"><span></span></label>
-                                </div>
-                                <div class="task-inner">
-                                    <header class="task-header">
-                                        <div class="info">
-                                            <time>14. September 2013</time>
-                                        </div>
-                                    </header>
-                                    <div class="task-text">
-                                        <span>Clean the house and mauris pretium purus id sapien consectetur</span>
-                                    </div>
-                                    <p class="task-note"></p>
-                                </div>
-                            </div>
-                            <div class="task violet-palette-helper" id="task5">
-                                <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check5" name="status"">
-                                    <label for="check5"><span></span></label>
-                                </div>
-                                <div class="task-inner">
-                                    <header class="task-header">
-                                        <div class="info">
-                                            <time>5. October 2013</time>
-                                        </div>
-                                    </header>
-                                    <div class="task-text">
-                                        <span>Gift for Petra</span>
-                                    </div>
-                                    <p class="task-note"></p>
-                                </div>
-                            </div>
-                            <div class="task yellow-palette-helper" id="task6">
-                                <div class="styled-check">
-                                    <input type="checkbox" class="checker" id="check6" name="status">
-                                    <label for="check6"><span></span></label>
-                                </div>
-                                <div class="task-inner">
-                                    <header class="task-header">
-                                        <div class="info">
-                                            <time>Last week</time>
-                                        </div>
-                                    </header>
-                                    <div class="task-text">
-                                        <span>Call to Jakub Antalik</span>
-                                    </div>
-                                    <p class="task-note"></p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -521,6 +521,19 @@ input[type=number] {
         -webkit-transition: all .2s ease;
         transition: all .2s ease; }
 
+.reset-tasks {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 14px;
+  padding: 5px 10px;
+  top: 15px;
+  right: 15px;
+  border-radius: 3px;
+  -webkit-transition: background .2s;
+  transition: background .2s; }
+  .reset-tasks:hover {
+    background: rgba(0, 0, 0, 0.8); }
+
 @font-face {
   font-family: 'Open Sans';
   src: url("../fonts/../fonts/OpenSans-Regular-webfont.woff2") format("woff2"), url("../fonts/../fonts/OpenSans-Regular-webfont.woff") format("woff"), url("../fonts/../fonts/OpenSans-Regular-webfont.ttf") format("truetype");
@@ -943,17 +956,6 @@ input[type=number] {
   .attachment:hover {
     color: rgba(255, 255, 255, 0.8); }
 
-.save-edited {
-  margin-right: 10px;
-  border-radius: 4px;
-  padding: 5px 15px;
-  background: rgba(92, 184, 92, 0.7);
-  opacity: .8;
-  -webkit-transition: background .2s;
-  transition: background .2s; }
-  .save-edited:hover {
-    background: rgba(92, 184, 92, 0.9); }
-
 .add-detail {
   margin-left: 17px;
   color: rgba(255, 255, 255, 0.4);
@@ -1033,33 +1035,23 @@ input[type=number] {
 .categories {
   background: #585a71;
   height: 100%;
-  padding: 0 10px;
+  padding: 0 5px;
   -webkit-transition: transform .2s;
   transition: transform .2s;
-  text-align: center; }
+  text-align: center;
+  font-weight: bold; }
   .categories > button {
     height: 24px;
-    width: 24px;
-    border-radius: 50%;
     display: inline-block;
-    margin: 10px 12px 0; }
-    .categories > button > span {
-      position: absolute;
-      clip: rect(0, 0, 0, 0);
-      overflow: hidden;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      border: 0;
-      margin: 0; }
+    margin: 10px 8px 0; }
   .categories .red-palette-helper {
-    background: #FE6D6A; }
+    color: #FE6D6A; }
   .categories .yellow-palette-helper {
-    background: #FFC778; }
+    color: #FFC778; }
   .categories .violet-palette-helper {
-    background: #CC94EF; }
+    color: #CC94EF; }
   .categories .green-palette-helper {
-    background: #2CE4BE; }
+    color: #2CE4BE; }
 
 .edit-reminder {
   position: absolute;
@@ -1160,7 +1152,7 @@ input[type=number] {
     font-size: 20px;
     float: right;
     position: absolute;
-    top: 30px;
+    top: 20px;
     right: 20px;
     color: rgba(255, 255, 255, 0.5); }
   .task.task-done {
@@ -1199,7 +1191,7 @@ input[type=number] {
     font-weight: bold; }
     .task-header .info .place {
       padding-right: 7px;
-      margin-right: 5px;
+      margin-right: 7px;
       border-right: 1px rgba(255, 255, 255, 0.2) solid; }
       .task-header .info .place:before {
         content: "\f041";
@@ -1208,6 +1200,8 @@ input[type=number] {
         margin-right: 8px;
         vertical-align: -2px;
         font-weight: bold; }
+      .task-header .info .place.hidden {
+        display: none; }
 
 .task-text {
   padding-top: 10px;

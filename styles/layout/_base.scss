@@ -171,3 +171,17 @@ input[type=number] {
     }
   }
 }
+.reset-tasks {
+  position: absolute;
+  background: rgba(0,0,0, .4);
+  font-size: 14px;
+  padding: 5px 10px;
+  top: 15px;
+  right: 15px;
+  border-radius: 3px;
+  -webkit-transition: background .2s;
+          transition: background .2s;
+  &:hover{
+    background: rgba(0,0,0, .8);
+  }
+}
