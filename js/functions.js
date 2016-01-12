@@ -7,31 +7,26 @@ this.Element && function(ElementPrototype) {
         }
 }(Element.prototype);
 
-var localstorage = {
-    set: function (key, value) {
-        window.localStorage.setItem( key, JSON.stringify(value) );
-    },
-    get: function (key) {
-        try {
-            return JSON.parse( window.localStorage.getItem(key) );
-        } catch (e) {
-            return null;
-        }
-    }
-};
-
-
 var toDoList = function () {
 
-        // query selector
     var $ = function (x) {
             return document.querySelector(x);
         },
         $$ = function (x) {
             return document.querySelectorAll(x);
         },
-
-        // get the class that contains some word
+        localstorage = {
+            set: function (key, value) {
+                window.localStorage.setItem( key, JSON.stringify(value) );
+            },
+            get: function (key) {
+                try {
+                    return JSON.parse( window.localStorage.getItem(key) );
+                } catch (e) {
+                    return null;
+                }
+            }
+        },
         getThatClass = function (element, contains) {
             var elementClasses = element.getAttribute("class").split(" "),
                 currentClass = '';
@@ -241,6 +236,10 @@ var toDoList = function () {
                 $categoryList = $(".category-list").children,
                 $selectedCategory = $(".task-options").querySelector(".category"),
                 $priorityCheck = $(".priority"),
+                $appBody = $(".app-body"),
+                appLayer = "task-details-open",
+                $detailButtons = $(".task-options").querySelectorAll("button"),
+                $newTaskPanels = $(".new-task-container").querySelectorAll(".panel"),
 
                 addNewTask = function () {
                     var storedTasks = localstorage.get("localTasks"),
@@ -261,7 +260,7 @@ var toDoList = function () {
                                 'text': $addedText.textContent,
                                 'note': "",
                                 'visible': true
-                            };
+                        };
                     storedTasks.push(newTask);
 
                     localstorage.set("localTasks", storedTasks);
@@ -269,20 +268,30 @@ var toDoList = function () {
                     addAllTasks(storedTasks);
                 };
 
-            for ( i = 0; i < $headerButtons.length; i++) {
+            for ( var i = 0; i < $headerButtons.length; i++) {
                 $headerButtons[i].onclick = function () {
-                    var selectedCategoryClass = getThatClass($selectedCategory, "palette");
+                    var selectedCategoryClass = getThatClass($selectedCategory, "palette"),
+                        panelClass = this.getAttribute("data-panel");
 
-                    if (hasClass(this, "active")) {
-                        this.classList.remove("active");
+                    if (this.classList.contains("active")) {
+                        $appBody.classList.remove(appLayer);
+                        removeActive($(".header-controls").children);
+                        document.removeEventListener("keyup", listenKey, true);
+
+
                     } else {
-                        removeActive($headerButtons);
-                        this.classList.toggle("active");
+                        $appBody.classList.add(appLayer);
+                        removeActive($(".header-controls").children);
+                        this.classList.add("active");
+                        $("." + panelClass).classList.add("active");
+                        window.addEventListener('mouseup', closeBar, true);
                     }
-                    if (hasClass(this, "add-btn") && hasClass(this, "active")) {
+
+                    if (this.classList.contains("add-btn") && this.classList.contains("active")) {
                         $categoryList[0].classList.add("active");
                         $selectedCategory.classList.add("red-palette");
-                    } else if (hasClass(this, "add-btn")) {
+                        document.addEventListener("keyup", listenKey, true);
+                    } else if (this.classList.contains("add-btn")) {
                         removeActive($categoryList);
                         $selectedCategory.classList.remove(selectedCategoryClass);
                         $priorityCheck.checked = false;
@@ -290,7 +299,24 @@ var toDoList = function () {
                 }
             }
 
-            for ( i = 0; i < $categoryList.length; i++) {
+            var closeBar = function(event) {
+                var $activePanel = $(".header-controls").querySelector(".header-controls > div.active"),
+                    inside = searchParentAdvanced(event.target, $activePanel),
+                    selectedCategoryClass = getThatClass($selectedCategory, "palette");
+                if(!inside) {
+                    if ($addTaskBtn.classList.contains("active")) {
+                        removeActive($categoryList);
+                        $selectedCategory.classList.remove(selectedCategoryClass);
+                        $priorityCheck.checked = false;
+                    }
+                    $appBody.classList.remove(appLayer);
+                    window.removeEventListener('mouseup', closeBar, true);
+                    removeActive($(".header-controls").children);
+                    document.removeEventListener("keyup", listenKey, true);
+                }
+            };
+
+            for ( var i = 0; i < $categoryList.length; i++) {
                 $categoryList[i].onclick = function () {
                     removeActive($categoryList);
                     this.classList.add("active");
@@ -303,34 +329,36 @@ var toDoList = function () {
                 }
             }
 
-            if (hasClass($addTaskBtn, "active")) {
-                document.onkeypress = function(e) {
-                    var code = (e.keyCode ? e.keyCode : e.which),
-                        defaultText = "Add a new task";
-                    if (code === 13) {
-                        console.log("hi");
+            for ( var i = 0; i < $detailButtons.length; i++) {
+                $detailButtons[i].onclick = function () {
+                    var thisPanel = document.querySelector("." + this.getAttribute("data-panel-button"));
+
+                    if ( !(this.classList.contains("active"))) {
+                        removeActive($detailButtons);
+                        removeActive($newTaskPanels);
+                        this.classList.add("active");
+                        thisPanel.classList.add("active");
                     }
-                };
+                }
             }
 
-            // pareizi vai nee?
+            var listenKey = function (e) {
 
-            document.onkeypress = function(e) {
-                if (hasClass($addTaskBtn, "active")) {
-                    var code = (e.keyCode ? e.keyCode : e.which),
-                        defaultText = "Add a new task";
-                    if (code === 13) {
-                        addNewTask();
-                        $addTaskBtn.classList.remove("active");
-                        $addedText.innerHTML = defaultText;
-                        removeActive($categoryList);
-                        $selectedCategory.classList.remove(getThatClass($selectedCategory, "palette"));
-                        $priorityCheck.checked = false;
-
-                        editTask();
-                        checkStatus();
-                        filterByCategory();
-                    }
+                var code = (e.keyCode ? e.keyCode : e.which),
+                    defaultText = "Add a new task";
+                if (code === 13) {
+                    addNewTask();
+                    $addTaskBtn.classList.remove("active");
+                    $newTaskBox.classList.remove("active");
+                    $addedText.innerHTML = defaultText;
+                    removeActive($categoryList);
+                    $selectedCategory.classList.remove(getThatClass($selectedCategory, "palette"));
+                    $priorityCheck.checked = false;
+                    $appBody.classList.remove(appLayer);
+                    editTask();
+                    checkStatus();
+                    filterByCategory();
+                    document.removeEventListener("keyup", listenKey, true);
                 }
             };
         },
@@ -367,22 +395,16 @@ var toDoList = function () {
                 $taskDetails = $(".task-details"),
                 $taskInner = $$(".task-inner"),
                 $editStatus = $taskDetails.querySelector(".styled-check").firstElementChild,
-
                 $categoryBox = $(".edit-category"),
                 $categoryButtons = $taskDetails.querySelector(".categories").children,
-
                 $reminderBox = $(".edit-reminder"),
                 $reminderControls = $(".reminder-controls"),
                 $saveReminder = $reminderControls.querySelector(".save"),
-
                 $importantCheck = $taskDetails.querySelector(".star-check").firstElementChild,
-
                 $editableElements = $$(".edit-detail"),
                 $editableElementBtns = [],
-
                 $calendarBox = $(".calendar-box"),
                 $calendarDates = $(".month-days").querySelectorAll("td"),
-
                 $hourInput = $(".hours").firstElementChild,
                 $minuteInput = $(".minutes").firstElementChild,
 
@@ -496,7 +518,6 @@ var toDoList = function () {
             getEditableElement();
             toggleEditableElements();
 
-
             for (i = 0; i < $taskInner.length; i++) {
                 $taskInner[i].onclick = function () {
 
@@ -522,8 +543,18 @@ var toDoList = function () {
                     $hourInput.value = pad($selectedTask.hour, 2);
                     $minuteInput.value = pad($selectedTask.minute, 2);
                     setReminder();
+
+                    window.addEventListener('mouseup', closeBar, true);
                 }
             }
+
+            var closeBar = function(event) {
+                var inside = searchParent(event.target, $taskDetails);
+                if(!inside) {
+                    saveTask();
+                    window.removeEventListener('mouseup', closeBar, true);
+                }
+            };
 
             for (i = 0; i < $categoryButtons.length; i++) {
                 $categoryButtons[i].onclick = function () {
@@ -543,108 +574,77 @@ var toDoList = function () {
                 }
             }
 
-            var checkParent = function (t, el) {
-
-            };
-            function clickOff(callback, selfDestroy) {
-                var clicked = false;
-                var parent = this;
-                var destroy = selfDestroy || true;
-
-                parent.click(function() {
-                    clicked = true;
-                });
-
-                $(document).click(function(event) {
-                    if (!clicked) {
-                        callback(parent, event);
-                    }
-                    if (destroy) {
-                        //parent.clickOff = function() {};
-                        //parent.off("click");
-                        //$(document).off("click");
-                        //parent.off("clickOff");
-                    }
-                    clicked = false;
-                });
-            }
-
-            $taskDetails.click(function () {
-                console.log("iekšā");
-            });
-            $taskDetails.clickOff(function () {
-               console.log("ārā");
-            });
-
-
-
-            //window.addEventListener('mouseup', function(event) {
-            //
-            //    if ($taskDetails.classList.contains("active")) {
-            //
-            //
-            //        function searchParent () {
-            //            if (event.target.parentNode === $taskDetails) {
-            //                return true;
-            //            //} else if ( event.target.parentNode === document.body) {
-            //            //    return false;
-            //            //} else {
-            //            //    return searchParent(event, $taskDetails);
-            //            //}
-            //        }
-            //        searchParent();
-            //
-            //
-            //
-            //        //if (!(event.target === $taskDetails || event.target.parentNode === $taskDetails || event.target.parentNode.parentNode === $taskDetails || event.target.parentNode.parentNode.parentNode === $taskDetails || event.target.parentNode.parentNode.parentNode.parentNode === $taskDetails || event.target.parentNode.parentNode.parentNode.parentNode.parentNode === $taskDetails)) {
-            //        //    saveTask();
-            //        //}
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //    }
-            //
-            //});
 
             $saveReminder.onclick = function () {
                 $reminderBox.classList.remove("active");
             };
+
+
         },
 
         filterByCategory = function () {
-            var navButtons = $(".navbar").children;
+            var navButtons = $(".navbar").children,
+                $filterTitle = $(".header-title");
 
-            for (i = 0; i < navButtons.length; i++) {
+            for ( var i = 0; i < navButtons.length; i++) {
                 navButtons[i].onclick = function() {
 
                     var storedTasks = localstorage.get("localTasks"),
-                        filterClass = getThatClass(this, "palette") + "-helper";
+                        filterClass = getThatClass(this, "palette") + "-helper",
+                        categoryColor = filterClass.substring(0, filterClass.length - 15),
+                        filterTitles = {
+                            'grey': "All tasks",
+                            'red': "Home",
+                            'yellow': "Work",
+                            'violet': "Computer",
+                            'green': "Friends"
+                        };
+
+                    $filterTitle.innerHTML = filterTitles[categoryColor];
 
                     removeActive(navButtons);
                     this.classList.add("active");
 
-                    for ( i = 0; i < storedTasks.length; i++) {
+                    for ( var i = 0; i < storedTasks.length; i++) {
                         storedTasks[i].visible = false;
                         if (storedTasks[i].category === filterClass) {
                             storedTasks[i].visible = true;
                         }
                     }
                     if (filterClass === "grey-palette-helper") {
-                        for ( i = 0; i < storedTasks.length; i++) {
+                        for ( var i = 0; i < storedTasks.length; i++) {
                             storedTasks[i].visible = true;
                         }
                     }
                     clearTasks();
                     addAllTasks(storedTasks);
-
                     editTask();
                     checkStatus();
                     filterByCategory();
                 };
+            }
+        },
+
+        searchParentAdvanced = function (clickEl, closeEl) {
+            var $addBtn = $(".add-btn"),
+                $searchBtn = $(".search-btn");
+
+            if (clickEl.parentNode === closeEl || clickEl === $addBtn || clickEl === $searchBtn) {
+                return true;
+            } else if ( clickEl.parentNode === document.body) {
+                return false;
+            } else {
+                return searchParent(clickEl.parentNode, closeEl);
+            }
+        },
+
+        searchParent = function (clickEl, closeEl) {
+            if (clickEl.parentNode === closeEl) {
+                return true;
+            } else if ( clickEl.parentNode === document.body) {
+                return false;
+            } else {
+                return searchParent(clickEl.parentNode, closeEl);
             }
         },
 

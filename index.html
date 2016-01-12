@@ -29,12 +29,11 @@
                 </button>
                 <h1 class="header-title">All tasks</h1>
                 <div class="header-controls">
-                    <button class="search-btn">
-                        <span>&#xf002;</span>
+                    <button class="search-btn" data-panel="search-section">
                     </button>
-                    <button class="add-btn">
+                    <button class="add-btn" data-panel="new-task-container">
                     </button>
-                    <section class="new-task-container">
+                    <div class="new-task-container">
                         <div class="add-task">
                             <div class="add-text" contenteditable="true"><span>Add a new task</span></div>
                             <div class="task-options">
@@ -45,13 +44,13 @@
                                         <span class="full"></span>
                                     </label>
                                 </div>
-                                <button class="date">
+                                <button class="date" data-panel-button="calendar-box--header">
                                     <span>&#xf073;</span>
                                 </button>
-                                <button class="category"></button>
+                                <button class="category active" data-panel-button="select-category"></button>
                             </div>
                         </div>
-                        <div class="select-category">
+                        <div class="select-category panel active">
                             <span>Select a category</span>
                             <div class="category-list">
                                 <button class="red-palette">
@@ -68,11 +67,90 @@
                                 </button>
                             </div>
                         </div>
-                    </section>
-                    <section class="search-section">
+                        <div class="calendar-box--header panel">
+                            <div class="calendar-head">
+                                <table>
+                                    <tr class="month-carousel">
+                                        <td colspan="7">
+                                            <a href="#" class="carousel-control left">
+                                                <span>&#xf104;</span>
+                                            </a>
+                                            <div class="carousel-inner">
+                                                <div class="item">
+                                                    September
+                                                </div>
+                                            </div>
+                                            <a href="#" class="carousel-control right">
+                                                <span>&#xf105;</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="week-days">
+                                        <td>MON</td>
+                                        <td>TUE</td>
+                                        <td>WED</td>
+                                        <td>THU</td>
+                                        <td>FRI</td>
+                                        <td>SAT</td>
+                                        <td>SUN</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="calendar-body">
+                                <table class="month-days">
+                                    <tr>
+                                        <td class="prev-next-month">24</td>
+                                        <td class="prev-next-month">25</td>
+                                        <td class="prev-next-month">26</td>
+                                        <td class="prev-next-month">27</td>
+                                        <td class="prev-next-month">28</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>11</td>
+                                        <td class="active">12</td>
+                                        <td>13</td>
+                                        <td>14</td>
+                                        <td>15</td>
+                                        <td>16</td>
+                                    </tr>
+                                    <tr>
+                                        <td>17</td>
+                                        <td>18</td>
+                                        <td>19</td>
+                                        <td>20</td>
+                                        <td>21</td>
+                                        <td>22</td>
+                                        <td>23</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>25</td>
+                                        <td>26</td>
+                                        <td>27</td>
+                                        <td>28</td>
+                                        <td class="prev-next-month">1</td>
+                                        <td class="prev-next-month">2</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-section">
                         <span>&#xf002;</span>
                         <input type="text" placeholder="search">
-                    </section>
+                    </div>
                 </div>
             </header>
             <section class="app-body">

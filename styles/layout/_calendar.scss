@@ -1,7 +1,5 @@
-.calendar-box.active{
-  display: block;
-}
-.calendar-box{
+.calendar-box,
+.calendar-box--header {
   display: none;
   position: absolute;
   width: 212px;
@@ -10,7 +8,7 @@
   top: -53px;
   z-index: 10;
   text-align: center;
-  &:after{
+  &::after {
     content: "";
     position: absolute;
     border-style: solid;
@@ -19,15 +17,66 @@
     right: -6px;
     top: 68px;
   }
+  &.active {
+    display: block;
+  }
 }
-.calendar-head{
+.calendar-box--header {
+  width: 100%;
+  position: relative;
+  right: 0;
+  top: 0;
+  .month-days {
+    td {
+      border-radius: 0;
+    }
+  }
+  .calendar-head {
+    background: rgba(60, 60, 60, .95);
+  }
+  .calendar-body {
+    background: rgba(50, 70, 70, .95);
+    color: rgba(255,255,255, .8);
+  }
+  .week-days {
+     color: #fff;
+  }
+  .month-days {
+    td {
+      -webkit-transition: opacity .2s ease;
+              transition: opacity .2s ease;
+      &:hover {
+        color: rgba(0,0,0, .8);
+      }
+    }
+  }
+  .carousel-control {
+    color: rgba(255, 255, 255, .3);
+    &:hover {
+      color: rgba(255, 255, 255, .8);
+    }
+  }
+  .carousel-inner {
+    color: rgba(255, 255, 255, .6);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent rgba(60, 60, 60, .95) transparent;
+    top: -10px;
+    right: 74px;
+  }
+}
+.calendar-head {
   background: #eceff6;
   padding: 11px;
   >table{
     width: 100%;
   }
 }
-.carousel-inner{
+.carousel-inner {
   color: #414757;
   font-weight: bold;
   display: inline-block;
