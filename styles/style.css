@@ -413,7 +413,7 @@ input[type=number] {
   -moz-appearance: textfield; }
 
 .content {
-  background: url("../_temp/motocross.jpg") center;
+  background: url("../images/motocross.jpg") center;
   background-size: cover;
   box-sizing: border-box;
   min-height: 100vh;
